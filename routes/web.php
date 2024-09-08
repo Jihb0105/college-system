@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $students = Student::orderBy('id', 'asc')->where(function ($query){
         if ($search = request()->query('search')) {
-            $query->where("title", "LIKE", "%{$search}%");
+            $query->where("stu_name", "LIKE", "%{$search}%");
         }
     })->paginate(10);
 
@@ -29,4 +29,16 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('students', StudentController::class);
+// Route::get('/students/student', [StudentController::class, 'index'])->name('students.index');
+
+Route::get('/students/student/create', [StudentController::class, 'create'])->name('students.create');
+
+Route::post('/students/student', [StudentController::class, 'store'])->name('students.store');
+
+Route::get('/students/student/{student}', [StudentController::class, 'show'])->name('students.show');
+
+Route::get('/students/student/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
+
+Route::put('/students/student/{student}', [StudentController::class, 'update'])->name('students.update');
+
+Route::delete('/students/student/{student}', [StudentController::class, 'destroy'])->name('students.destroy');

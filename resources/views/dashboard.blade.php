@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl leading-tight">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
@@ -48,9 +48,10 @@
                                         <table class="table table-striped table-hover">
                                             <thead>
                                             <tr>
-                                                <th width="5%">#</th>
-                                                <th width="15%">Title</th>
-                                                <th width="70%">Description</th>
+                                                <th width="2%">#</th>
+                                                <th width="20%">Name</th>
+                                                <th width="20%">Student ID</th>
+                                                <th width="0%">Enrollment Date</th>
                                                 <th width="10%">Action</th>
                                             </tr>
                                             </thead>
@@ -58,8 +59,9 @@
                                                 @foreach ($students as $index=>$student)
                                                     <tr class="text-capitalize">
                                                         <th scope="row">{{ $index+1 }}</th>
-                                                        <td>{{ $student->title }}</td>
-                                                        <td>{{ $student->description }}</td>
+                                                        <td>{{ $student->stu_name }}</td>
+                                                        <td>{{ $student->stu_id }}</td>
+                                                        <td>{{ $student->stu_enrollmentdate }}</td>
                                                         <td >
                                                             <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
                                                             <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>

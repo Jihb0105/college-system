@@ -23,15 +23,31 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    { //dd($request);die;
+        $request->validate([
+            'stu_name' => 'required',
+            'stu_id' => 'required',
+            'stu_primaryid' => 'required',
+            'stu_primaryidtype' => 'required',
+            'stu_gender' => 'required',
+            'stu_email' => 'required',
+            'stu_phonenum' => 'required',
+            'stu_enrollmentdate' => 'required',
+            'stu_address' => 'required'
+        ]);
+
+        Student::create($request->all());
+
+
+        return redirect()->route('dashboard')
+                        ->with('success', 'Student created successfully.');
     }
 
     /**
@@ -39,7 +55,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $student = Student::findOrFail($id);
+        return view("students.show", compact('student'));
     }
 
     /**
@@ -47,7 +64,8 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student = Student::findOrFail($id);
+        return view("students.edit", compact('student'));
     }
 
     /**
@@ -55,7 +73,9 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $student = Student::findOrFail($id);
+        $student->update($request->all());
+        return redirect('dashboard')->with('success', 'Student updated successfully.');
     }
 
     /**
@@ -63,6 +83,8 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $student = Student::findOrFail($id);
+        $student->delete();
+        return redirect()->route('dashboard')->with('success', "Student has been deleted successfully");
     }
 }
