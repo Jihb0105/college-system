@@ -109,7 +109,7 @@
 
                                 <div class="form-group row mb-0 mt-3">
                                     <div class="d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-primary me-3" style="background-color: #009DA6; border-color:#009DA6">Save</button>
+                                        <button type="submit" class="btn btn-primary me-3" style="background-color: #009DA6; border-color:#009DA6">Update Student</button>
                                         <a href="{{route('dashboard')}}" class="btn btn-outline-secondary">Cancel</a>
                                     </div>
                                 </div>

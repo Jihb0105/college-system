@@ -21,7 +21,7 @@
                                         <div class="d-flex align-items-center">
                                             <h2 class="ms-2 fs-3"><b>Manage Students</b></h2>
                                             <div class="ml-auto">
-                                                <a href="{{ route('students.create') }}"  style="background-color: #FF9C27" class="btn btn-success">Add New</a>
+                                                <a href="{{ route('students.create') }}"  style="background-color: #FF9C27" class="btn btn-success">Register New User</a>
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                                                 <th width="20%">Name</th>
                                                 <th width="20%">Student ID</th>
                                                 <th width="0%">Enrollment Date</th>
-                                                <th width="10%">Action</th>
+                                                <th width="35%">Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -62,9 +62,14 @@
                                                         <td>{{ $student->stu_name }}</td>
                                                         <td>{{ $student->stu_id }}</td>
                                                         <td>{{ $student->stu_enrollmentdate }}</td>
-                                                        <td >
-                                                            <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                                                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                                                        <td class='d-flex '>
+                                                            <!-- <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a> -->
+                                                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-primary me-1" style="background-color: #32de84; border: 1px solid #32de84; color: white;" title="Edit">Update Student</a>
+                                                            <form action="{{ route('students.destroy', $student->id) }}" method="POST" >
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                    <button type="submit" class="btn btn-primary" style="background-color: transparent; border: 1px solid #DC3545; color: #DC3545;">Delete Student</button>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
