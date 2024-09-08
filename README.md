@@ -10,7 +10,7 @@ This Application utilises laravel framework to produce a CRUD operation applicat
 1. Install latest version of XAMPP. Download link at [XAMPP Download Link](https://www.apachefriends.org/download.html).
 2. Download Composer([Composer Download Link](https://getcomposer.org/download/)). 
 4. Install Laravel 11. [Laravel Documentation](https://laravel.com/docs/11.x).
-5. Rather than creating new Laravel project, git clone the project repository. Link: https://[github.com/Jihb0105/CRUD-Post-Web-App](https://github.com/Jihb0105/college-system)
+5. Rather than creating new Laravel project, git clone the project repository. Link: [github.com/Jihb0105/college-system](https://github.com/Jihb0105/college-system)
 6. With terminal cd into the application folder.
 7. Run composer install 
 8. Copy .env.example file to .env on the root folder. You can type copy .env.example .env if using command prompt Windows or cp .env.example .env if using terminal, Ubuntu
